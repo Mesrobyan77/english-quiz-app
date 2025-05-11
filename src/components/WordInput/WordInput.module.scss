@@ -1,7 +1,5 @@
-/* AddWord.module.scss */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-/* Container with gradient background and fade-in animation */
 .container {
   max-width: 90%;
   width: 600px;
@@ -10,7 +8,7 @@
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #fff;
   text-align: center;
   animation: fadeIn 1s ease-in-out;
@@ -25,13 +23,17 @@
   }
 }
 
-/* Fade-in animation */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Heading with bounce animation */
 h1 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -50,12 +52,19 @@ h1 {
 }
 
 @keyframes bounceIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* Input fields with focus and hover effects */
 .input {
   display: block;
   width: 60%;
@@ -67,7 +76,7 @@ h1 {
   background: rgba(255, 255, 255, 0.9);
   color: #333;
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
 
   &:focus {
@@ -97,7 +106,6 @@ h1 {
   }
 }
 
-/* Button with hover and active effects */
 .button {
   display: block;
   margin: 1rem auto;
@@ -108,9 +116,11 @@ h1 {
   color: #333;
   font-weight: 600;
   font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 
   &:hover,
   &:active {
@@ -129,7 +139,6 @@ h1 {
   }
 }
 
-/* Error and success messages */
 .error {
   color: #e74c3c;
   font-size: 0.9rem;
@@ -153,6 +162,12 @@ h1 {
 }
 
 @keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

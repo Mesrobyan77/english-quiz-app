@@ -26,7 +26,6 @@ Customizable Settings:
 Speech rate and voice selection.
 Sound volume control and toggle.
 
-
 Local Storage: Persists user settings and word list.
 Routing: Built with react-router-dom for potential multi-page navigation.
 
@@ -40,22 +39,18 @@ Clone the repository:
 git clone https://github.com/mesrobyan77/english-quiz-app.git
 cd english-quiz-app
 
-
 Install dependencies:
 npm install
-
 
 Add sound files (optional, for sound effects):
 
 Place correct.mp3 and incorrect.mp3 in the public/sounds/ folder.
 Source free sound effects from Freesound.org or similar.
 
-
 Start the development server:
 npm start
 
 The app will open at http://localhost:3000.
-
 
 🚀 Usage
 
@@ -63,13 +58,11 @@ Add Words:
 
 The app uses a word list stored in localStorage under the key "words".
 Example format:[
-  { "id": "1", "english": "hello", "translated": "բարեւ" },
-  { "id": "2", "english": "world", "translated": "աշխարհ" }
+{ "id": "1", "english": "hello", "translated": "բարեւ" },
+{ "id": "2", "english": "world", "translated": "աշխարհ" }
 ]
 
-
 Use a separate component or manually set via localStorage.setItem("words", JSON.stringify([...])).
-
 
 Play the Quiz:
 
@@ -79,12 +72,10 @@ Enter translations and submit to receive feedback.
 Correct answers trigger confetti and a sound effect; incorrect answers play a buzzer.
 Adjust speech rate, voice, sound volume, or toggle sounds via settings.
 
-
 Customize:
 
 Modify Quiz.module.scss for different colors or animations.
 Update particlesOptions in Quiz.js for custom particle effects.
-
 
 Quiz.js: Core component with quiz logic, animations, and sound effects.
 Quiz.module.scss: Responsive styles with animations and particle background.
@@ -101,7 +92,7 @@ react-router-dom 7.6.0: Routing (extendable for multi-page apps).
 axios 1.9.0: For potential API integrations.
 nanoid 5.1.5: Unique ID generation for words.
 
-Dev dependencies include testing libraries (@testing-library/*) and prettier for code formatting.
+Dev dependencies include testing libraries (@testing-library/\*) and prettier for code formatting.
 See package.json for the full list.
 📜 Scripts
 

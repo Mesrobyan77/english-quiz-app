@@ -15,13 +15,17 @@ const WordInput = () => {
       return;
     }
     setError("");
-    const newEntry = { id: nanoid(), english: english.trim(), translated: translated.trim() };
+    const newEntry = {
+      id: nanoid(),
+      english: english.trim(),
+      translated: translated.trim(),
+    };
     const existing = JSON.parse(localStorage.getItem("words") || "[]");
     localStorage.setItem("words", JSON.stringify([...existing, newEntry]));
     setSuccess("Word added successfully!");
     setEnglish("");
     setTranslated("");
-    setTimeout(() => setSuccess(""), 2000); // Clear success message after 2s
+    setTimeout(() => setSuccess(""), 2000);
   };
 
   return (
