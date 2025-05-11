@@ -1,53 +1,53 @@
-import { useState } from "react";
-import { nanoid } from "nanoid";
+import React, { useState } from "react";
 import styles from "./WordInput.module.scss";
+import { nanoid } from "nanoid";
 
 const WordInput = () => {
   const [english, setEnglish] = useState("");
   const [translated, setTranslated] = useState("");
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!english || !translated) {
-      setMessage("Please fill in both fields.");
+  const handleAdd = () => {
+    if (!english.trim() || !translated.trim()) {
+      setError("Please enter both English and Armenian words.");
+      setSuccess("");
       return;
     }
-
-    const wordPair = { id: nanoid(), english, translated };
-    const storedWords = JSON.parse(localStorage.getItem("words") || "[]");
-    storedWords.push(wordPair);
-    localStorage.setItem("words", JSON.stringify(storedWords));
-
+    setError("");
+    const newEntry = { id: nanoid(), english: english.trim(), translated: translated.trim() };
+    const existing = JSON.parse(localStorage.getItem("words") || "[]");
+    localStorage.setItem("words", JSON.stringify([...existing, newEntry]));
+    setSuccess("Word added successfully!");
     setEnglish("");
     setTranslated("");
-    setMessage("Word pair saved!");
-    setTimeout(() => setMessage(""), 2000);
+    setTimeout(() => setSuccess(""), 2000); // Clear success message after 2s
   };
 
   return (
     <div className={styles.container}>
-      <h2 className="text-2xl font-bold mb-4">Add Word Pair</h2>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          placeholder="English word"
-          value={english}
-          onChange={(e) => setEnglish(e.target.value)}
-          className={styles.input}
-        />
-        <input
-          type="text"
-          placeholder="Translated word"
-          value={translated}
-          onChange={(e) => setTranslated(e.target.value)}
-          className={styles.input}
-        />
-        <button type="submit" className={styles.button}>
-          Save
-        </button>
-      </form>
-      {message && <p className={styles.message}>{message}</p>}
+      <h1>Add New Word</h1>
+      <input
+        type="text"
+        placeholder="English word"
+        value={english}
+        onChange={(e) => setEnglish(e.target.value)}
+        className={styles.input}
+        aria-label="English word"
+      />
+      <input
+        type="text"
+        placeholder="Armenian translation"
+        value={translated}
+        onChange={(e) => setTranslated(e.target.value)}
+        className={styles.input}
+        aria-label="Armenian translation"
+      />
+      {error && <p className={styles.error}>{error}</p>}
+      {success && <p className={styles.success}>{success}</p>}
+      <button onClick={handleAdd} className={styles.button}>
+        Add Word
+      </button>
     </div>
   );
 };

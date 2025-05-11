@@ -37,7 +37,7 @@ const WordList = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Your Words</h2>
+      <h2 className={styles.title}>Your Words</h2>
       {words.length === 0 ? (
         <p>No words added yet.</p>
       ) : (
