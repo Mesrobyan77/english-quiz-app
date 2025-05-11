@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.container {
+  max-width: 90%;
+  width: 600px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 1.8rem;
+  animation: bounceIn 0.8s ease-out;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.directionSelector,
+.rateSelector,
+.voiceSelector,
+.volumeSelector,
+.soundToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  transition: all 0.3s ease;
+
+  label {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  select,
+  input[type="range"],
+  input[type="checkbox"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 0.9rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover,
+    &:active {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(110, 142, 251, 0.8);
+    }
+  }
+
+  input[type="range"] {
+    width: 100px;
+
+    @media (max-width: 480px) {
+      width: 80px;
+    }
+  }
+
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+  }
+
+  span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+.wordContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  animation: slideIn 0.5s ease-out;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.word {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+}
+
+.speakerIcon {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+
+  &:hover,
+  &:active {
+    transform: scale(1.3);
+    color: #ffd700;
+    animation: pulse 1s infinite;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1rem 0;
+
+  .input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1rem;
+    width: 60%;
+    max-width: 300px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 15px rgba(110, 142, 251, 0.8);
+      transform: scale(1.02);
+    }
+
+    &.correct {
+      background: #28a745;
+      color: #fff;
+      animation: correctAnswer 0.5s ease;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background: #ffd700;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+
+    &:hover,
+    &:active {
+      background: #ffca28;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@keyframes correctAnswer {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  animation: popIn 0.5s ease-out;
+
+  &.congratulations {
+    color: #28a745;
+    font-weight: 600;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.nextButton {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff6f61;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+
+  &:hover,
+  &:active {
+    background: #ff4d4d;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+.noWords {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 1.5rem;
+  animation: fadeIn 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+}

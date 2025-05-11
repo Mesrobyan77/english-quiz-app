@@ -1,0 +1,62 @@
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wordList {
+  list-style: none;
+  padding: 0;
+}
+
+.wordItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.editBtn,
+.deleteBtn,
+.saveBtn {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.editBtn {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.deleteBtn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.saveBtn {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}

@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+English-Armenian Translation Quiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautifully designed, responsive React application for learning English and Armenian vocabulary through an interactive translation quiz. Features include speech synthesis, animated feedback, confetti celebrations, particle backgrounds, and sound effects for an engaging user experience.
+📖 Table of Contents
 
-## Available Scripts
+Features
+Demo
+Installation
+Usage
+Project Structure
+Dependencies
+Scripts
+Contributing
+License
 
-In the project directory, you can run:
+✨ Features
 
-### `npm start`
+Interactive Quiz: Translate words between English and Armenian with real-time feedback.
+Speech Synthesis: Listen to word pronunciations using the Web Speech API.
+Responsive Design: Optimized for mobile, tablet, and desktop with fluid layouts.
+Animations: Smooth transitions, slide-ins, and bounce effects for a lively UI.
+Confetti Celebration: Visual rewards for correct answers using canvas-confetti.
+Particle Background: Dynamic, interactive particles via @tsparticles/react.
+Sound Effects: Audio feedback for correct/incorrect answers (requires correct.mp3 and incorrect.mp3).
+Customizable Settings:
+Speech rate and voice selection.
+Sound volume control and toggle.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Local Storage: Persists user settings and word list.
+Routing: Built with react-router-dom for potential multi-page navigation.
 
-### `npm test`
+🎥 Demo
+[Insert a link to a live demo or screenshot here, e.g., hosted on Netlify/Vercel]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🛠 Installation
+Follow these steps to set up the project locally:
 
-### `npm run build`
+Clone the repository:
+git clone https://github.com/mesrobyan77/english-quiz-app.git
+cd english-quiz-app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install dependencies:
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Add sound files (optional, for sound effects):
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Place correct.mp3 and incorrect.mp3 in the public/sounds/ folder.
+Source free sound effects from Freesound.org or similar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Start the development server:
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app will open at http://localhost:3000.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🚀 Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Add Words:
 
-### Code Splitting
+The app uses a word list stored in localStorage under the key "words".
+Example format:[
+  { "id": "1", "english": "hello", "translated": "բարեւ" },
+  { "id": "2", "english": "world", "translated": "աշխարհ" }
+]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Use a separate component or manually set via localStorage.setItem("words", JSON.stringify([...])).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Play the Quiz:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Select translation direction (English → Armenian or Armenian → English).
+Listen to words using the speaker icon (English only).
+Enter translations and submit to receive feedback.
+Correct answers trigger confetti and a sound effect; incorrect answers play a buzzer.
+Adjust speech rate, voice, sound volume, or toggle sounds via settings.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Customize:
 
-### Deployment
+Modify Quiz.module.scss for different colors or animations.
+Update particlesOptions in Quiz.js for custom particle effects.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+Quiz.js: Core component with quiz logic, animations, and sound effects.
+Quiz.module.scss: Responsive styles with animations and particle background.
+public/sounds/: Stores audio files for correct/incorrect feedback.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📦 Dependencies
+Key dependencies used in the project:
+
+React 19.1.0: Frontend framework.
+@tsparticles/react 3.0.0: Interactive particle backgrounds.
+canvas-confetti 1.9.3: Confetti animations for correct answers.
+sass 1.88.0: SCSS for styling.
+react-router-dom 7.6.0: Routing (extendable for multi-page apps).
+axios 1.9.0: For potential API integrations.
+nanoid 5.1.5: Unique ID generation for words.
+
+Dev dependencies include testing libraries (@testing-library/*) and prettier for code formatting.
+See package.json for the full list.
+📜 Scripts
+
+npm start: Runs the app in development mode.
+npm build: Builds the app for production.
+npm test: Runs tests with Jest.
+npm eject: Ejects from Create React App (use with caution).
+npm format: Formats code with Prettier.
+
+🤝 Contributing
+Contributions are welcome! To contribute:
+
+Fork the repository.
+Create a feature branch (git checkout -b feature/your-feature).
+Commit changes (git commit -m "Add your feature").
+Push to the branch (git push origin feature/your-feature).
+Open a pull request.
+
+Please ensure code is formatted with Prettier (npm format) and passes tests (npm test).
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Built with ❤️ by Mesrobyan77. Happy learning!
