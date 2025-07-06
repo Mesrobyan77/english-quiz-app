@@ -32,7 +32,7 @@ const Quiz = () => {
 
       if (storedVoiceURI === "") {
         const defaultVoice = availableVoices.find(
-          (voice) => voice.name === "Google UK English Male",
+          (voice) => voice.name === "Google UK English Male"
         );
         if (defaultVoice) {
           setSelectedVoiceURI(defaultVoice.voiceURI);
@@ -76,7 +76,7 @@ const Quiz = () => {
   const speakWord = () => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(
-      direction === "en-hy" ? currentWord.english : currentWord.translated,
+      direction === "en-hy" ? currentWord.english : currentWord.translated
     );
     utterance.lang = direction === "en-hy" ? "en-US" : "hy-AM";
     utterance.rate = rate;
@@ -102,17 +102,17 @@ const Quiz = () => {
     setFeedback(isAnswerCorrect ? "Congratulations!" : "Incorrect. Try again!");
     setIsCorrect(isAnswerCorrect);
 
+    const audio = new Audio(
+      isAnswerCorrect ? "/sounds/correct.mp3" : "/sounds/incorrect.mp3"
+    );
+    audio.play();
+
     if (isAnswerCorrect) {
       confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
       });
-      const audio = new Audio("/sounds/correct.mp3");
-      audio.play();
-    } else {
-      const audio = new Audio("/sounds/incorrect.mp3");
-      audio.play();
     }
   };
 
@@ -126,6 +126,10 @@ const Quiz = () => {
     const newVoiceURI = e.target.value;
     setSelectedVoiceURI(newVoiceURI);
     localStorage.setItem("selectedVoiceURI", newVoiceURI);
+  };
+
+  const handleWordClick = () => {
+    setDirection((prev) => (prev === "en-hy" ? "hy-en" : "en-hy"));
   };
 
   const particlesInit = async (engine) => {
@@ -248,7 +252,11 @@ const Quiz = () => {
       {currentWord && (
         <>
           <div className={styles.wordContainer}>
-            <p className={styles.word}>
+            <p
+              className={styles.word}
+              onClick={handleWordClick}
+              title="Click to switch language direction"
+            >
               {direction === "en-hy"
                 ? `English: ${currentWord.english}`
                 : `Armenian: ${currentWord.translated}`}
@@ -263,6 +271,7 @@ const Quiz = () => {
               ></i>
             )}
           </div>
+
           <form onSubmit={handleSubmit} className={styles.form}>
             <input
               type="text"
@@ -279,9 +288,12 @@ const Quiz = () => {
               Check
             </button>
           </form>
+
           {feedback && (
             <p
-              className={`${styles.feedback} ${isCorrect ? styles.congratulations : ""}`}
+              className={`${styles.feedback} ${
+                isCorrect ? styles.congratulations : ""
+              }`}
             >
               {feedback}
             </p>

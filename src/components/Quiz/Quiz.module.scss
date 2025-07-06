@@ -386,3 +386,13 @@ h2 {
     margin: 1rem;
   }
 }
+
+.word {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    color: rgba(245, 242, 242, 0.437);
+  }
+}
